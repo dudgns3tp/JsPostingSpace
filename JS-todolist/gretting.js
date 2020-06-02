@@ -5,7 +5,7 @@ const greeting = document.querySelector(".js-greetings");
 const USER_LS = "currentUser"
 const SHOWING_CN = "showing"
 
-const saveName = (text) =>{
+const saveName = (text) =>{ // 로컬 스토리지에 저장해서 사용자를 기억
     localStorage.setItem(USER_LS,text);
 }
 
