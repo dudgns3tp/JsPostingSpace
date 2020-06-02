@@ -11,7 +11,7 @@ const handleClick = ()=>{
     }
 
 }
-const init = ()=>{
+function init(){
     title.addEventListener("click", handleClick)
 }
 init();
