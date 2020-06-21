@@ -1,5 +1,5 @@
 const clockContainer = document.querySelector(".js-clock"); //js-clock이란 클래스 이름을 가진 친구를 찾는다
-const clockTitle = clockContainer.querySelector("h1");
+const clockTitle = clockContainer.querySelector("h3");
 
 const getTime = () =>{
     const date = new Date();

@@ -7,6 +7,7 @@ body{
 }
 body{
     color :#ff7675;
+    font-size:2rem;
 }
 
 .clicked{
@@ -16,6 +17,9 @@ body{
 .form,
 .greetings{
     display:none;
+    background-color:white;
+    position: static;
+    width:160px;
 }
 
 .showing{
