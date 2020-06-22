@@ -7,11 +7,29 @@
 var app = require('../app');
 var debug = require('debug')('mongoosepost:server');
 var http = require('http');
+var mongoose = require('mongoose');
+mongoose.set('useCreateIndex',true);
+const mongoosePW = require("../config/mongoDB.json")
 
 /**
  * Get port from environment and store in Express.
  */
 
+ let db = mongoose.connection;
+ db.on('error',console.error);
+db.once('open', function(){
+  console.log("Connected to mongod server. server host: ",db.host);
+})
+
+mongoose.connect('mongodb+srv://cyh:'+mongoosePW.mongoosePW+'@placepicserver-abt8u.mongodb.net/cyh?retryWrites=true&w=majority',{
+  useUnifiedTopology:true, 
+  useNewUrlParser:true,
+  useFindAndModify:false
+},(err)=>{
+  if(err){
+    console.log(err);
+  }
+});
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
