@@ -17,7 +17,8 @@ const placeSchema = new Schema({
     see:{type:Number, default:0},
     likePlace:{type:Number, default:0},
     commentsCount:{type:Number,default:0},
-    groupCode:String
-})
+    groupCode:String,
+    comments :[{type:mongoose.Schema.Types.ObjectId, ref: 'comment'}]
+},{versionKey:'_somethingElse'})
 
 module.exports = mongoose.model('place',placeSchema)
