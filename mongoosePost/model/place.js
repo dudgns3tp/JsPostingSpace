@@ -5,10 +5,10 @@ const placeSchema = new Schema({
     placeName:{type:String, required:true},
     category:[String],
     imageUrl:[String],
-    location:[{
+    location:{
         latitude:{type:String, required:true},
         longitude:{type:String, required:true}
-    }],
+    },
     createdDateTime:{type: Date, default:Date.now()},
     stations:[String],
     tagList:[String],
