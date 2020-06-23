@@ -1,31 +1,21 @@
-version: "19.03.8" # 설치된 docker 버전에 따라 다릅니다!
-services:
-  server:
-    container_name: server
-    build: . # Dockerfile이 위치한 경로
+version : '3'
+services: 
+  proxy:
+    image: nginx:latest #최신 버전의 nginx
+    container_name: proxy #  container 네임은 proxy
     ports:
-      - "3030:3031" # 연결할 포트
-    environment: # 환경변수 설정
-      - NODE_PATH=src
-      - DB_HOST=mongo
-      - DB=test
-    networks: # 각 컨테이너를 연결하는 네트워크
-      - backend
-
-  mongodb:
-    container_name: mongo
-    image: mvertes/alpine-mongo # alpine 이미지는 용량이 적어 사용하기 좋다.
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo:/data/db # volume을 만들어두지 않으면 컨테이너가 매번 종료될 때마다 데이터가 초기화 되므로 따로 볼륨으로 관리한다.
-    networks:
-      - backend # 앱 서버와 같은 네트워크에 연결
-      # 만약 이 항목을 넣지 않으면 연결이 없다는 에러가 발생함
-
-networks: # 가장 기본적인 bridge 네트워크
-  backend:
-    driver: bridge
-
-volumes: # mongodb 데이터
-  mongo:
+      - "80:80"
+    volumes: 
+       - ./proxy/nginx.conf:/etc/nginx/nginx.conf # nginx 설정 파일 volume 맵핑
+     #restart: "unless-stopped"   #내부에서 에러로 인해 container가 죽을 경우 restart
+     links: 
+      -placepic1:placepic1
+      -placepic2:placepic2
+  placepic1:
+    image: dudgns3tp/placepic:node  #어느 이미지를 사용할지
+    expose:
+      -"3000"  # 다른 컨테이너에게 3000번 포트 open
+  placepic2:
+    image: dudgns3tp/placepic:node
+    expose:
+      -"3000"
