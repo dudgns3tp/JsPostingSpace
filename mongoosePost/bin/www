@@ -21,7 +21,7 @@ db.once('open', function(){
   console.log("Connected to mongod server. server host: ",db.host);
 })
 
-mongoose.connect('mongodb+srv://cyh:'+mongoosePW.mongoosePW+'@placepicserver-abt8u.mongodb.net/cyh?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://cyh:'+mongoosePW.mongoosePW+'@server-ubtth.mongodb.net/placePic?retryWrites=true&w=majority',{
   useUnifiedTopology:true, 
   useNewUrlParser:true,
   useFindAndModify:false
