@@ -84,5 +84,27 @@ module.exports = {
                 message: `서버 에러: ${err}`
             })
         }
+    },
+    readPlace: async (req, res) => {
+        //이미지, 장소, 태그
+        try {
+            const getPlaceData = await place.find().select({
+                _id: 0,
+                imageUrl: 1,
+                placeName: 1,
+                tagList: 1
+            });
+            console.log(getPlaceData);
+            res.status(200).json({
+                message: "전체 장소 조회 성공",
+                data: {
+                    place: getPlaceData
+                }
+            })
+        } catch{
+            res.status(500).json({
+                message:"서버 에러"
+            })
+        }
     }
 }

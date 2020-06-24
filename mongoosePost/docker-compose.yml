@@ -1,21 +1,21 @@
 version : '3'
 services: 
   proxy:
-    image: nginx:latest #최신 버전의 nginx
+    image: nginx #최신 버전의 nginx
     container_name: proxy #  container 네임은 proxy
     ports:
       - "80:80"
     volumes: 
        - ./proxy/nginx.conf:/etc/nginx/nginx.conf # nginx 설정 파일 volume 맵핑
      #restart: "unless-stopped"   #내부에서 에러로 인해 container가 죽을 경우 restart
-     links: 
-      -placepic1:placepic1
-      -placepic2:placepic2
+    depends_on:
+      - placepic1
+      - placepic2
   placepic1:
     image: dudgns3tp/placepic:node  #어느 이미지를 사용할지
     expose:
-      -"3000"  # 다른 컨테이너에게 3000번 포트 open
+      - "3000"  # 다른 컨테이너에게 3000번 포트 open
   placepic2:
     image: dudgns3tp/placepic:node
     expose:
-      -"3000"
+      - "3000"
