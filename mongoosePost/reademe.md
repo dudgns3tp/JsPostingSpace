@@ -12,13 +12,16 @@
 - 2019 인천대학교 컴퓨터 공학부 35대 학생회장
 - 2020 IT 창업동아리 SOPT 25기수료, 26기 서버파트 활동 중
 
+
 **TMI WARNING!**
 
 - 주방 알바 경험이 많아서 요리를 좋아함. 특히 야매요리 도전하는거 좋아해서 이상한데 맛있을 확률 72%
 - ISFJ (용감한 수호자) 어머님의 마음으로 멘탈케어 해드려요 😊
 - 운전도 잘함(안전운전, 방어운전 고수) 심지어 카트도 잘함
 - 더 궁금하다면..? Pick me pick me <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3031d022-393c-488a-bf94-2506007776d4%2FLogo2.png?table=block&id=39591ca3-2f0c-48fb-82ea-aaa27be973d4&width=250&cache=v2" width="20px" /> me!
-
+\
+[]()\
+[]()
 
 ## 최영훈이 플레이스픽 에게 원하는 것 
 - 실제 서비스 운영 경험
@@ -34,6 +37,8 @@
 - 귀여워지기 🐷
 
 
+\
+[]()
 
 # Dev
 
@@ -42,24 +47,45 @@
 
 ![플레이스픽 아키텍처](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/arhite.png?raw=true)
 
+\
+[]()
+
 플레이스픽의 데모 아키텍처입니다. 앱잼 기간 도중 다양한 변수가 작용하고 기획이 변경될 수 있는 부분을 고려하여 최종적인 아키텍처가 아닙니다! 얼마든지 변경 가능하고 파트원들과 논의해 보겠습니다! (특히 데이터베이스..!)
+\
+[]()
+
+\
+[]()
 
 ## 플레이스픽 서버파트 커뮤니케이션
 
 notion? github? 최종적인 결정은 플레이스픽 팀원들과 논의하겠습니다.
 
+\
+[]()
+
+
 ### github Milestones 칸반보드 예시
 ![마일스톤](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/mileston.png?raw=true)
 
-스프린트에 따른 마일스톤
+> 스프린트에 따른 마일스톤
+
+\
+[]()
 
 ![스프린트예시](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/splint1.png?raw=true)
 
- 스프린트 이슈 티켓 예시
+> 스프린트 이슈 티켓 예시
+\
+[]()
 
 ![클로즈](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/close.png?raw=true)
 
-완성된 기능은 close
+> 완성된 기능은 close
+
+\
+[]()
+
 
 ### DB 모델링 예시
 
@@ -95,6 +121,9 @@ module.exports = mongoose.model('place',placeSchema)
 
 ```
 
+\
+[]()
+
 
 ```javascript
 const userSchema = new Schema({
@@ -111,6 +140,8 @@ const userSchema = new Schema({
 })
 ```
 
+\
+[]()
 
 ```javascript
 const mongoose = require('mongoose');
@@ -128,6 +159,8 @@ const groupSchema = new Schema({
 module.exports = mongoose.model('group',groupSchema)
 ```
 
+\
+[]()
 
 ```javascript
 const mongoose = require('mongoose');
@@ -142,8 +175,10 @@ const commentSchema = new Schema({
  
 module.exports = mongoose.model('comment', commentSchema);
 ```
+\
+[]()
 
-# +...
+# 잠..시만여! 마지막 하고싶은말이 있어요!
 
 저는 자신 있습니다.
 \
