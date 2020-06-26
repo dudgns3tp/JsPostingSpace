@@ -64,7 +64,36 @@ notion? github? 최종적인 결정은 플레이스픽 팀원들과 논의하겠
 
 기능 명세서와 플레이스픽 핵심 화면을 참고하여 작성하였습니다. 개발에 앞서 가장 중요한 단계이므로 모든 스키마정의는 팀원들과 협의하여 Biz 요구사항에 맞춰서 다시 모델링하겠습니다.
 
-![place](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/place.png?raw=true)
+```javascript
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const moment = require('moment');
+
+const placeSchema = new Schema({
+    placeName:{type:String, required:true},
+    category:[String],
+    imageUrl:[String],
+    location:{
+        latitude:{type:String, required:true},
+        longitude:{type:String, required:true},
+        address:{type:String}
+    },
+    createdDateTime:{type: String, default:moment().format('YYYY/MM/DD HH:mm:ss')},
+    stations:[String],
+    tagList:[String],
+    description:String,
+    upLoader:{type:String, required:true},
+    see:{type:Number, default:0},
+    likePlace:{type:Number, default:0},
+    bookMark:{type:Number, default:0},
+    groupCode:String,
+    comments :[{type:mongoose.Schema.Types.ObjectId, ref: 'comment'}]
+},{versionKey:'_somethingElse'})
+
+module.exports = mongoose.model('place',placeSchema)
+
+```
+
 
 ```javascript
 const userSchema = new Schema({
@@ -80,6 +109,7 @@ const userSchema = new Schema({
     }]
 })
 ```
+
 
 ```javascript
 const mongoose = require('mongoose');
@@ -97,6 +127,7 @@ const groupSchema = new Schema({
 module.exports = mongoose.model('group',groupSchema)
 ```
 
+
 ```javascript
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -110,8 +141,6 @@ const commentSchema = new Schema({
 module.exports = mongoose.model('comment', commentSchema);
 ```
 
-```javascript
-```
 
 
 
