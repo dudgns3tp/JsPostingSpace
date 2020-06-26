@@ -17,9 +17,14 @@ const dummyPlace = {
         longitude: "12.2346641"
     },
     stations: [
-        "서동탄역",
-        "병점역",
-        "동탄역"
+        {
+            lineNumber:"1",
+            stationName:"서동탄역"
+        },
+        {
+            lineNumber:"1",
+            stationName:"병점역"
+        }
     ],
     tagList: [
         "맛있는",
