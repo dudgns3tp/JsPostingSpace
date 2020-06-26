@@ -16,10 +16,7 @@ const dummyPlace = {
         longitude: "12.2346641"
     },
     stations: [
-        {
-            lineNumber:"1",
-            stationName:"동대문역"
-        }
+        "동대문역"
     ],
     tagList: [
         "맛있는",
@@ -101,7 +98,8 @@ module.exports = {
                     place: getPlaceData
                 }
             })
-        } catch{
+        } catch(err){
+            console.log(err);
             res.status(500).json({
                 message:"서버 에러"
             })

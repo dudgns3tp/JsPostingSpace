@@ -12,10 +12,7 @@ const placeSchema = new Schema({
         address:{type:String}
     },
     createdDateTime:{type: String, default:moment().format('YYYY/MM/DD HH:mm:ss')},
-    stations:[{
-        lineNumber:{type:String},
-        stationName:{type:String}
-    }],
+    stations:[String],
     tagList:[String],
     description:String,
     upLoader:{type:String, required:true},
