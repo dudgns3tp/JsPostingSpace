@@ -47,6 +47,73 @@ TMI WARNING!
 
 notion? github? 최종적인 결정은 플레이스픽 팀원들과 논의하겠습니다.
 
+### github Milestones 예시
+![마일스톤](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/mileston.png?raw=true)
+
+스프린트에 따른 마일스톤
+
+![스프린트예시](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/splint1.png?raw=true)
+
+ 스프린트 이슈 티켓 예시
+
+![클로즈](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/close.png?raw=true)
+
+완성된 기능은 close
+
+### DB 모델링 예시
+
+기능 명세서와 플레이스픽 핵심 화면을 참고하여 작성하였습니다. 개발에 앞서 가장 중요한 단계이므로 모든 스키마정의는 팀원들과 협의하여 Biz 요구사항에 맞춰서 다시 모델링하겠습니다.
+
+![place](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/place.png?raw=true)
+
+```javascript
+const userSchema = new Schema({
+    userName:{type:String, required:true},
+    email:{type:String, required:true, unique:true},
+    password:{type:String, required:true},
+    salt:String,
+    phone:{type:String, required:true, unique:true},
+    profileImage:String,
+    group:[{
+        groupCode:{type:String, default:null},
+        groupName:String
+    }]
+})
+```
+
+```javascript
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const groupSchema = new Schema({
+    groupName:{type: String, required : true}, //
+    groupInfo:String,
+    groupImage:String,
+    groupIcon:String,
+    groupCode:{type:String, unique:true},
+    groupAdmin:[String],
+    groupMembers:[{type:mongoose.Schema.Types.ObjectId, ref:'user'}]
+},{versionKey:'_somethingElse'})
+module.exports = mongoose.model('group',groupSchema)
+```
+
+```javascript
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+ 
+const commentSchema = new Schema({
+    content: String,
+    writer: String,
+    comment_date: {type: Date, default: Date.now()}
+})
+ 
+module.exports = mongoose.model('comment', commentSchema);
+```
+
+```javascript
+```
+
+
 
 
 
