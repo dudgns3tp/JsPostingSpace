@@ -7,10 +7,9 @@ const user = {
     posts: 24
 }
 const dummyPlace = {
-    placeName: "우리집",
+    placeName: "엽기떡볶이",
     category: [
-        "cafe",
-        "PCRoom"
+        "맛집"
     ],
     location: {
         latitude: "63.23562123",
@@ -19,18 +18,14 @@ const dummyPlace = {
     stations: [
         {
             lineNumber:"1",
-            stationName:"서동탄역"
-        },
-        {
-            lineNumber:"1",
-            stationName:"병점역"
+            stationName:"동대문역"
         }
     ],
     tagList: [
         "맛있는",
         "저렴한"
     ],
-    description: "테스트"
+    description: "맛집이에요~"
 }
 module.exports = {
     uploadPlace: async (req, res) => {
@@ -85,6 +80,7 @@ module.exports = {
                     }
                 })
         } catch (err) {
+            console.log(err);
             return res.status(500).json({
                 message: `서버 에러: ${err}`
             })
@@ -99,7 +95,6 @@ module.exports = {
                 placeName: 1,
                 tagList: 1
             });
-            console.log(getPlaceData);
             res.status(200).json({
                 message: "전체 장소 조회 성공",
                 data: {

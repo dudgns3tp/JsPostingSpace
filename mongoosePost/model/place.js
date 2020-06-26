@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const moment = require('moment');
 
 const placeSchema = new Schema({
     placeName:{type:String, required:true},
@@ -10,7 +11,7 @@ const placeSchema = new Schema({
         longitude:{type:String, required:true},
         address:{type:String}
     },
-    createdDateTime:{type: Date, default:Date.now()},
+    createdDateTime:{type: String, default:moment().format('YYYY/MM/DD HH:mm:ss')},
     stations:[{
         lineNumber:String,
         stationName:String
