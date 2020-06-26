@@ -13,4 +13,5 @@ const userSchema = new Schema({
         groupName:String
     }]
 })
-module.exports = mongoose.model('post',postSchema)
+module.exports = mongoose.model('user',userSchema)
+
