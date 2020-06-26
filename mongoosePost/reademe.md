@@ -39,7 +39,7 @@ TMI WARNING!
 ## 플레이스픽 서버 아키텍처
 
 
-![플레이스픽 아키텍처](https://sopt26.s3.ap-northeast-2.amazonaws.com/1593179355610.png)
+![플레이스픽 아키텍처](https://github.com/dudgns3tp/JsPostingSpace/blob/master/mongoosePost/public/images/arhite.png?raw=true)
 
 플레이스픽의 데모 아키텍처입니다. 앱잼 기간 도중 다양한 변수가 작용하고 기획이 변경될 수 있는 부분을 고려하여 최종적인 아키텍처가 아닙니다! 얼마든지 변경 가능하고 파트원들과 논의해 보겠습니다! (특히 데이터베이스..!)
 
