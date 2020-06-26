@@ -8,5 +8,6 @@ const groupSchema = new Schema({
     groupIcon:String,
     groupCode:{type:String, unique:true},
     groupAdmin:[String],
+    groupMembers:[{type:mongoose.Schema.Types.ObjectId, ref:'user'}]
 },{versionKey:'_somethingElse'})
 module.exports = mongoose.model('group',groupSchema)

@@ -18,7 +18,7 @@ const mongoosePW = require("../config/mongoDB.json")
  let db = mongoose.connection;
  db.on('error',console.error);
 db.once('open', function(){
-  console.log("Connected to mongod server. server host: ",db.host);
+  console.log("몽고디비 연결 성공: ",db.host);
 })
 
 mongoose.connect('mongodb+srv://cyh:'+mongoosePW.mongoosePW+'@server-ubtth.mongodb.net/placePic?retryWrites=true&w=majority',{
