@@ -4,7 +4,7 @@ const moment = require('moment');
 
 const placeSchema = new Schema({
     placeName:{type:String, required:true},
-    category:[String],
+    category:{type:String, required:true},
     imageUrl:[String],
     location:{
         latitude:{type:String, required:true},
