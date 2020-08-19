@@ -3,18 +3,31 @@ const Sequelize = require('sequelize');
 module.exports = class User extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
+            email: {
+                type: Sequelize.STRING(20),
+                allowNull: false,
+                unique: true,
+            },
+            password: {
+                type: Sequelize.STRING(200),
+                allowNull: true,
+            },
             name: {
                 type: Sequelize.STRING(20),
                 allowNull: false,
                 unique: true,
             },
+            snsId: {
+                type: Sequelize.STRING(30),
+                allowNull: true,
+            },
             age: {
                 type: Sequelize.INTEGER.UNSIGNED,
-                allowNull: false,
+                allowNull: true,
             },
             married: {
                 type: Sequelize.BOOLEAN,
-                allowNull: false,
+                allowNull: true,
             },
             comment: {
                 type: Sequelize.TEXT,
@@ -24,6 +37,11 @@ module.exports = class User extends Sequelize.Model {
                 type: Sequelize.DATE,
                 allowNull: false,
                 defaultValue: Sequelize.NOW,
+            },
+            provider: {
+                type: Sequelize.STRING(10),
+                allowNull: false,
+                defaultValue: 'local'
             },
         },{
             sequelize,
