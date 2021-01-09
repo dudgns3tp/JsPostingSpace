@@ -3,6 +3,7 @@ const request = require('request');
 const dotenv = require('dotenv');
 
 const router = express.Router();
+const naverAPI = require('../modules/naverBookApi');
 
 dotenv.config()
 
@@ -21,23 +22,41 @@ router.get('/naver', async (req, res) => {
 			'X-Naver-Client-Secret': process.env.NAVER_CLIENT_SECRET
 		}
 	};
-	let books;
-		request.get(options, function (error, response, body) {
+	
+	request.get(options, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			res.writeHead(200, {
 				'Content-Type': 'text/json;charset=utf-8'
 			});
-			books = JSON.parse(body).items
-
-			res.end(body);
-		} else {
+			JSON.parse(body).items 
+			res.end(body)
+ 		} else {
 			res.status(response.statusCode).end();
 			console.log('error = ' + response.statusCode);
 		}
-	const titles = books.map(book => book.title)
-	console.log(titles)
 	});
 });
+
+router.get('/apis', async (req,res) => {
+	const books = await naverAPI.callBookApi(req.query.query);
+	const titles = books.map(book => {
+		let bookTitle = JSON.stringify(book.title)
+			.replace(/(<b>)|(<\/b>)/gi,'')
+			.replace(/ *\([^)]*\) */g, "");
+		let bookDescription = JSON.stringify(book.description)
+			.replace(/(<b>)|(<\/b>)/gi,'')
+		return {
+			title: JSON.parse(bookTitle),
+			link: book.link,
+			image: book.image,
+			author: book.author,
+			isbn: book.isbn,
+			description: JSON.parse(bookDescription)
+		}
+	})
+	console.log(titles)
+	res.send(books)
+})
 
 
 module.exports = router;
