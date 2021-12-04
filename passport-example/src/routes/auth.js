@@ -65,7 +65,7 @@ router.get('/kakao', passport.authenticate('kakao'));
 router.get('/kakao/callback', passport.authenticate('kakao', {
   session: false
 }), (req, res) => {
-  console.log(req);
+  console.log(req.session);
   res.status(200).send(util.success(200,"카카오 성공", req.user));
 })
 
